@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'leads',
     'rest_framework',
     'django_filters',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,3 +126,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# settings.py (at the bottom)
+
+# CORS Configuration
+# Set to True to allow CORS from all origins (Less secure, but fine for local dev)
+# CORS_ALLOW_ALL_ORIGINS = True 
+
+# Better for development: Explicitly list your frontend development server
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    # If you are using Vite, the default port is often 5173
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
