@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'listings',
     'leads',
     'rest_framework',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
